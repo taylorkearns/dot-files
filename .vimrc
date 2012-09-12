@@ -9,18 +9,27 @@ call pathogen#infect()
 set vb
 
 " Colors
-set t_Co=256
-set background=light
 syntax on
-color Solarized
+highlight Search cterm=bold,underline guibg=NONE ctermbg=NONE
+set t_Co=256
+if has('gui_running')
+  color Solarized
+  set background=dark
+else
+  color default
+  set background=dark
+endif
+
+" Line numbers color
+highlight LineNr guifg='#444444' guibg=NONE
+
 filetype plugin indent on
-highlight Search cterm=bold,underline guibg=NONE ctermbg=NONE ctermfg=Yellow
 
 " Search hidden files
 set hidden
 
 " Highlight search
-set hlsearch
+set nohlsearch
 
 " Line numbers
 set number
@@ -48,28 +57,18 @@ set nobackup
 set nowritebackup
 set noswapfile
 
-" Key mappings
-map <F2> :NERDTreeToggle<CR>
-
 " NERDTree
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden=0
+map <F2> :NERDTreeToggle<CR>
 
 " Fat finger fixes
 command! -bang W w<bang>
 
-" SmartInput
-" call smartinput#map_to_trigger('i', '#', '#', '#')
-" call smartinput#define_rule({
-" \   'at': '\%#',
-" \   'char': '#',
-" \   'input': '#{   }<Left>',
-" \   'filetype': ['ruby'],
-" \   'syntax': ['Constant', 'Special'],
-" \ })
+" Comments
+nmap <C-c> ^i#<esc>j
+nmap <C-x> ^i-#<esc>j
+nmap <C-v> ^i//<esc>j
+nmap <C-z> <esc>^x
 
-" call smartinput#define_rule({
-" \   'at': '\({\|\<do\>\)\s*\%#',
-" \   'char': '<Bar>',
-" \   'input': '<Bar><Bar><Left>',
-" \   'filetype': ['ruby'],
-" \ })
+" Open up new lines w/out switching to insert mode
+nmap <C-m> <esc>o<esc>
