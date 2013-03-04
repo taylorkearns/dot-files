@@ -1,3 +1,6 @@
+" Extra runtime paths for plugins
+set runtimepath+=$HOME/.vim/vim-haml
+
 " Use Vim instead of Vi settings
 set nocompatible
 
@@ -10,18 +13,19 @@ set vb
 
 " Colors
 syntax on
-highlight Search cterm=bold,underline guibg=NONE ctermbg=NONE
 set t_Co=256
-if has('gui_running')
-  color Solarized
-  set background=dark
-else
-  color default
-  set background=dark
-endif
+color carvedwood
+set background=dark
+"if has('gui_running')
+  "color Solarized
+  "set background=dark
+"else
+  "color default
+  "set background=dark
+"endif
 
 " Fonts
-set guifont=Monaco
+set guifont=Monaco:h12
 
 filetype plugin indent on
 
@@ -29,7 +33,9 @@ filetype plugin indent on
 set hidden
 
 " Highlight search
-set nohlsearch
+set hlsearch
+highlight Search cterm=bold,underline
+:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " Line numbers
 set number
