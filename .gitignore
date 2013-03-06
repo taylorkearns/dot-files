@@ -1,3 +1,5 @@
 .DS_Store
 *.swp
 bundler_stubs/
+.ruby-version
+.env

@@ -14,28 +14,30 @@ set vb
 " Colors
 syntax on
 set t_Co=256
-color carvedwood
-set background=dark
-"if has('gui_running')
+if has('gui_running')
+  color carvedwood
+  set background=dark
   "color Solarized
   "set background=dark
-"else
-  "color default
-  "set background=dark
-"endif
+else
+  color zenburn
+  set background=dark
+endif
 
 " Fonts
 set guifont=Monaco:h12
 
 filetype plugin indent on
 
+" Search
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
 " Search hidden files
 set hidden
-
-" Highlight search
-set hlsearch
-highlight Search cterm=bold,underline
-:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " Line numbers
 set number
