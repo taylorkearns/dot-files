@@ -15,12 +15,12 @@ set vb
 syntax on
 set t_Co=256
 if has('gui_running')
-  color carvedwood
+  color twilight
   set background=dark
   "color Solarized
   "set background=dark
 else
-  color zenburn
+  color Zenburn
   set background=dark
 endif
 
@@ -34,6 +34,8 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
+highlight Search guibg=#1a1a1a guifg=pink gui=underline
+highlight incsearch guibg=#1a1a1a guifg=pink gui=underline
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " Search hidden files
