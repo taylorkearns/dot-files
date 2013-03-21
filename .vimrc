@@ -88,6 +88,5 @@ nmap <C-z> <esc>^x
 " Open up new lines w/out switching to insert mode
 nmap <C-m> <esc>o<esc>
 
-" Toggle between tabs
-nmap 1 gT
-nmap 0 gt
+" Slim syntax for emblem.js"
+au BufNewFile,BufRead *.emblem set filetype=slim
