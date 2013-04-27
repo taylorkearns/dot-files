@@ -35,7 +35,7 @@ set incsearch
 set ignorecase
 set smartcase
 highlight Search guibg=#1a1a1a guifg=pink gui=underline
-highlight incsearch guibg=#1a1a1a guifg=pink gui=underline
+highlight incsearch guibg=#1a1a1a guifg=pink
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " Search hidden files
@@ -78,12 +78,6 @@ map <F2> :NERDTreeToggle<CR>
 
 " Fat finger fixes
 command! -bang W w<bang>
-
-" Comments
-nmap <C-c> ^i#<esc>j
-nmap <C-x> ^i-#<esc>j
-nmap <C-v> ^i//<esc>j
-nmap <C-z> <esc>^x
 
 " Open up new lines w/out switching to insert mode
 nmap <C-m> <esc>o<esc>
