@@ -1,7 +1,10 @@
-.DS_Store
 *.swp
-bundler_stubs/
-.ruby-version
+.DS_Store
 .env
-Session.vim
 .rspec
+.ruby-version
+Session.vim
+bundler_stubs/
+custom_plan.rb
+tags
+zeus.json
