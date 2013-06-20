@@ -14,13 +14,14 @@ set vb
 " Colors
 syntax on
 set t_Co=256
+
 if has('gui_running')
-  color twilight
-  set background=dark
-  "color Solarized
+  color pyte
+  set background=light
+  "color twilight
   "set background=dark
 else
-  color Zenburn
+  color default
   set background=dark
 endif
 
@@ -74,6 +75,7 @@ set noswapfile
 
 " NERDTree
 let NERDTreeShowHidden=0
+let NERDTreeWinSize=60
 map <F2> :NERDTreeToggle<CR>
 
 " Fat finger fixes
@@ -84,3 +86,6 @@ nmap <C-m> <esc>o<esc>
 
 " Slim syntax for emblem.js"
 au BufNewFile,BufRead *.emblem set filetype=slim
+
+" Execute ctags each time a file is saved
+autocmd BufWritePost * call system("ctags -R")
