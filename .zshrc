@@ -34,10 +34,12 @@ plugins=(git osx rails3 tkearns)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/Users/taykearns/.rvm/gems/ruby-1.9.3-head/bin:/Users/taykearns/.rvm/gems/ruby-1.9.3-head@global/bin:/Users/taykearns/.rvm/rubies/ruby-1.9.3-head/bin:/Users/taykearns/.rvm/bin:/usr/local/bin:/usr/local/sbin:/Users/taykearns/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin
+export PATH=/usr/local/bin:/usr/local/sbin:/Users/taykearns/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/git/bin
 export PATH=/usr/local/bin:/usr/local/sbin:~/bin:$PATH
-
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
