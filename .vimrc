@@ -16,8 +16,10 @@ syntax on
 set t_Co=256
 
 if has('gui_running')
+  " Light color scheme
   color pyte
   set background=light
+  " Dark color scheme
   "color twilight
   "set background=dark
 else
@@ -35,8 +37,12 @@ set hlsearch
 set incsearch
 set ignorecase
 set smartcase
-highlight Search guibg=#1a1a1a guifg=pink gui=underline
-highlight incsearch guibg=#1a1a1a guifg=pink
+" Light color scheme
+highlight Search guibg=pink guifg=white
+highlight incsearch guibg=NONE guifg=pink
+" Dark color scheme
+"highlight Search guibg=NONE guifg=pink gui=underline
+"highlight incsearch guibg=NONE guifg=pink
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " Search hidden files
