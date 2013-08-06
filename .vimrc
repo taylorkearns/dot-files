@@ -17,14 +17,13 @@ set t_Co=256
 
 if has('gui_running')
   " Light color scheme
-  color pyte
-  set background=light
+  "color pyte
+  "set background=light
   " Dark color scheme
-  "color twilight
-  "set background=dark
-else
-  color default
+  color twilight
   set background=dark
+else
+  color zenburn
 endif
 
 " Fonts
@@ -38,11 +37,11 @@ set incsearch
 set ignorecase
 set smartcase
 " Light color scheme
-highlight Search guibg=pink guifg=white
-highlight incsearch guibg=NONE guifg=pink
-" Dark color scheme
-"highlight Search guibg=NONE guifg=pink gui=underline
+"highlight Search guibg=pink guifg=white
 "highlight incsearch guibg=NONE guifg=pink
+" Dark color scheme
+highlight Search guibg=NONE guifg=pink gui=underline
+highlight incsearch guibg=NONE guifg=pink
 :nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " Search hidden files
