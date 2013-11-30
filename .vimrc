@@ -94,3 +94,7 @@ au BufNewFile,BufRead *.emblem set filetype=slim
 
 " Execute ctags each time a file is saved
 autocmd BufWritePost * call system("ctags -R")
+
+" Lusty
+let g:LustyExplorerSuppressRubyWarning = 1
+let g:LustyJugglerSuppressRubyWarning = 1
