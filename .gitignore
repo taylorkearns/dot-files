@@ -8,3 +8,8 @@ bundler_stubs/
 custom_plan.rb
 tags
 zeus.json
+*.log.*
+*.build
+.rvmrc
+.repl_history
+build-iPhoneSimulator/
