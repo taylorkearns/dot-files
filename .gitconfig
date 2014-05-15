@@ -5,10 +5,11 @@
 	autocrlf = input
 	safecrlf = true
 	excludesfile = /Users/taylorkearns/.gitignore
+	editor = vim
 [color]
 	ui = true
 [push]
-	default = matching
+	default = upstream
 [alias]
 	co = checkout
   pr = pull --rebase
