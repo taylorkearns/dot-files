@@ -27,7 +27,7 @@ else
 endif
 
 " Fonts
-set guifont=Menlo:h12
+set guifont=Courier:h16
 
 filetype plugin indent on
 
@@ -91,9 +91,6 @@ nmap <C-m> <esc>o<esc>
 
 " Slim syntax for emblem.js"
 au BufNewFile,BufRead *.emblem set filetype=slim
-
-" Execute ctags each time a file is saved
-autocmd BufWritePost * call system("ctags -R")
 
 " Lusty
 let g:LustyExplorerSuppressRubyWarning = 1
