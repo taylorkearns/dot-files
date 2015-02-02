@@ -27,7 +27,7 @@ else
 endif
 
 " Fonts
-set guifont=Courier:h16
+set guifont=SimHei:h18
 
 filetype plugin indent on
 
