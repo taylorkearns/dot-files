@@ -42,7 +42,7 @@ set smartcase
 " Dark color scheme
 highlight Search guibg=NONE guifg=pink gui=underline
 highlight incsearch guibg=NONE guifg=pink
-:nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+:nnoremap <silent> <space> :nohlsearch<Bar>:echo<CR>
 
 " Search hidden files
 set hidden
@@ -95,3 +95,26 @@ au BufNewFile,BufRead *.emblem set filetype=slim
 " Lusty
 let g:LustyExplorerSuppressRubyWarning = 1
 let g:LustyJugglerSuppressRubyWarning = 1
+
+" Format JSON
+function! Format_json()
+  silent %s/'/"/gce
+
+  silent %s/{/{\r/ge
+  silent %s/}/\r}/ge
+
+  silent %s/\[/[\r/ge
+  silent %s/\]/\r]/ge
+
+  silent %s/":/": /ge
+  silent %s/"\s+:/": /ge
+
+  silent %s/,\s*"/,\r"/ge
+  silent g/^$/de
+
+  normal gg
+  normal V
+  normal G
+  silent normal =
+  normal <space>
+endfunction
