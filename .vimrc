@@ -42,7 +42,7 @@ set smartcase
 " Dark color scheme
 highlight Search guibg=NONE guifg=pink gui=underline
 highlight incsearch guibg=NONE guifg=pink
-:nnoremap <silent> <space> :nohlsearch<Bar>:echo<CR>
+nnoremap <silent> <space> :nohlsearch<Bar>:echo<CR>
 
 " Search hidden files
 set hidden
@@ -72,6 +72,10 @@ nnoremap <silent> <space><space> :silent! %s/\s\+$//g<CR>
 " Easier escape key
 inoremap jf <esc>
 inoremap Jf <esc>
+
+" Add quotes around a word
+nmap "" wi"<esc>Bi"<esc>
+nmap '' wi'<esc>Bi'<esc>
 
 " Remove backup and swap files
 set nobackup
@@ -109,12 +113,15 @@ function! Format_json()
   silent %s/":/": /ge
   silent %s/"\s+:/": /ge
 
+  silent %s/""/"/ge
+
   silent %s/,\s*"/,\r"/ge
+
+  silent %s/\s\+$//ge
   silent g/^$/de
 
   normal gg
   normal V
   normal G
   silent normal =
-  normal <space>
 endfunction
