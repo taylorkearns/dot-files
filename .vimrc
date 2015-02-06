@@ -111,7 +111,8 @@ function! Format_json()
   silent %s/\]/\r]/ge
 
   silent %s/":/": /ge
-  silent %s/"\s+:/": /ge
+  silent %s/"\s\+:/": /ge
+  silent %s/:\s\+/: /ge
 
   silent %s/""/"/ge
 
@@ -124,4 +125,5 @@ function! Format_json()
   normal V
   normal G
   silent normal =
+  normal <space>
 endfunction
