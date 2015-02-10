@@ -27,8 +27,8 @@ else
 endif
 
 " Fonts
-set guifont=Courier:h16
-set linespace=2
+set guifont=Courier:h15
+set linespace=4
 
 filetype plugin indent on
 
@@ -86,7 +86,7 @@ set noswapfile
 " NERDTree
 let NERDTreeShowHidden=0
 let NERDTreeWinSize=60
-map <F2> :NERDTreeToggle<CR>
+nmap 2 :NERDTreeToggle<CR>
 
 " Fat finger fixes
 command! -bang W w<bang>
