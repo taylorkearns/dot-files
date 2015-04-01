@@ -1,4 +1,6 @@
 *.build
+*.crt
+*.key
 *.log.*
 *.swp
 .DS_Store
@@ -8,11 +10,11 @@
 .ruby-version
 .rvmrc
 Session.vim
+bin/
 build-iPhoneSimulator/
 bundler_stubs/
-custom_plan.rb
 database.yml
+dump.rdb
 tags
 zeus.json
-*.crt
-*.key
+vertical_specs.sh
