@@ -1,0 +1,16 @@
+set guifont=Menlo:h14
+set linespace=2
+
+" Easier escape key
+inoremap jf <esc>
+inoremap Jf <esc>
+
+" Open up new lines w/out switching to insert mode
+nmap <C-m> <esc>o<esc>
+
+" Clear trailing spaces
+nnoremap <silent> <space><space> :silent! %s/\s\+$//g<CR>
+
+" Highlighting
+highlight Search guibg=NONE guifg=pink gui=underline
+highlight incsearch guibg=NONE guifg=pink
