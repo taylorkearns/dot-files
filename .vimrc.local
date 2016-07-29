@@ -1,5 +1,9 @@
-set guifont=Menlo:h14
+set shell=sh
+set guifont=Monaco:h12
 set linespace=2
+
+" Line numbers
+highlight lineNr guifg=#4D5057
 
 " Easier escape key
 inoremap jf <esc>
@@ -12,5 +16,5 @@ nmap <C-m> <esc>o<esc>
 nnoremap <silent> <space><space> :silent! %s/\s\+$//g<CR>
 
 " Highlighting
-highlight Search guibg=NONE guifg=pink gui=underline
-highlight incsearch guibg=NONE guifg=pink
+highlight Search guibg=NONE ctermbg=NONE guifg=pink ctermfg=yellow
+highlight incsearch guibg=NONE ctermbg=NONE guifg=pink ctermfg=yellow
