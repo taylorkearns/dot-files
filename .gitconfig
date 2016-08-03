@@ -1,15 +1,15 @@
 [user]
-	name = Taylor Kearns
-	email = tkearns@gmail.com
+  name = Taylor Kearns
+  email = tkearns@gmail.com
 [core]
-	autocrlf = input
-	safecrlf = true
-	excludesfile = /Users/taylorkearns/.gitignore
-	editor = vim
+  autocrlf = input
+  safecrlf = true
+  excludesfile = /Users/taylorkearns/.gitignore
+  editor = vim
 [color]
-	ui = true
+  ui = true
 [push]
-	default = upstream
+  default = upstream
 [alias]
 	co = checkout
   pr = pull --rebase
