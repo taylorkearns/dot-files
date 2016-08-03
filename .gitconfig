@@ -11,5 +11,6 @@
 [push]
   default = upstream
 [alias]
-	co = checkout
-  pr = pull --rebase
+  pul = pull
+  st = status
+  lol = log --pretty=format:'%Cblue%h  %Creset%s %Cblue(%cr)'
