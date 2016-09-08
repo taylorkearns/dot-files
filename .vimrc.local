@@ -1,20 +1,26 @@
 set shell=sh
 set guifont=Monaco:h12
 set linespace=2
-
-" Line numbers
-highlight lineNr guifg=#4D5057
+set ignorecase
 
 " Easier escape key
 inoremap jf <esc>
 inoremap Jf <esc>
 
-" Open up new lines w/out switching to insert mode
-nmap <C-m> <esc>o<esc>
-
 " Clear trailing spaces
 nnoremap <silent> <space><space> :silent! %s/\s\+$//g<CR>
+
+" Colorscheme
+if has('gui_running')
+  colorscheme Kellys
+else
+  colorscheme zenburn
+endif
+
+" Line numbers for dark theme
+" highlight lineNr guifg=#4D5057
 
 " Highlighting
 highlight Search guibg=NONE ctermbg=NONE guifg=pink ctermfg=yellow
 highlight incsearch guibg=NONE ctermbg=NONE guifg=pink ctermfg=yellow
+
