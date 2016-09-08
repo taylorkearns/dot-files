@@ -24,3 +24,5 @@ endif
 highlight Search guibg=NONE ctermbg=NONE guifg=pink ctermfg=yellow
 highlight incsearch guibg=NONE ctermbg=NONE guifg=pink ctermfg=yellow
 
+" Open up new lines w/out switching to insert mode
+nmap <C-m> <esc>o<esc>
