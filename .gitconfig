@@ -11,6 +11,7 @@
 [push]
   default = upstream
 [alias]
+  cp = cherry-pick
+  lol = log --pretty=format:'%Cblue%h  %Creset%s %Cblue(%cr)' -20
   pul = pull
   st = status
-  lol = log --pretty=format:'%Cblue%h  %Creset%s %Cblue(%cr)'
