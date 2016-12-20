@@ -11,18 +11,23 @@ inoremap Jf <esc>
 nnoremap <silent> <space><space> :silent! %s/\s\+$//g<CR>
 
 " Colorscheme
-if has('gui_running')
-  colorscheme Kellys
-else
-  colorscheme zenburn
-endif
+" colorscheme Bclear
+colorscheme Kellys
+" colorscheme Twilight
+" colorscheme Vice
+" colorscheme zenburn
+" highlight lineNr guibg=#3F3F3F
 
 " Line numbers for dark theme
 " highlight lineNr guifg=#4D5057
 
+" Color column for line length max
+set colorcolumn=101
+highlight ColorColumn guibg=black ctermbg=black
+
 " Highlighting
-highlight Search guibg=NONE ctermbg=NONE guifg=pink ctermfg=yellow
-highlight incsearch guibg=NONE ctermbg=NONE guifg=pink ctermfg=yellow
+highlight Search guibg=NONE ctermbg=NONE guifg=orange ctermfg=yellow
+highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=orange ctermfg=yellow
 
 " Open up new lines w/out switching to insert mode
 nmap <C-m> <esc>o<esc>
