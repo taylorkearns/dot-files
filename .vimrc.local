@@ -10,20 +10,18 @@ inoremap Jf <esc>
 " Clear trailing spaces
 nnoremap <silent> <space><space> :silent! %s/\s\+$//g<CR>
 
-" Colorscheme
-" colorscheme Bclear
-colorscheme Kellys
-" colorscheme Twilight
-" colorscheme Vice
-" colorscheme zenburn
-" highlight lineNr guibg=#3F3F3F
-
-" Line numbers for dark theme
-" highlight lineNr guifg=#4D5057
-
 " Color column for line length max
 set colorcolumn=101
-highlight ColorColumn guibg=black ctermbg=black
+
+" Colorscheme Bclear
+" Colorscheme Kellys
+" Colorscheme Twilight
+" Colorscheme Vice
+
+" Colorscheme Zenburn
+colorscheme zenburn
+highlight lineNr guibg=#3f3f3f guifg=#666666
+highlight ColorColumn guibg=#3a3a3a ctermbg=black
 
 " Highlighting
 highlight Search guibg=NONE ctermbg=NONE guifg=orange ctermfg=yellow
