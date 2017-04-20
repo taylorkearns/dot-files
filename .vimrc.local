@@ -1,5 +1,5 @@
 set shell=sh
-set guifont=Monaco:h12
+set guifont=Apercu:h11
 set linespace=2
 set ignorecase
 
@@ -10,22 +10,49 @@ inoremap Jf <esc>
 " Clear trailing spaces
 nnoremap <silent> <space><space> :silent! %s/\s\+$//g<CR>
 
-" Color column for line length max
-set colorcolumn=101
-
-" Colorscheme Bclear
-" Colorscheme Kellys
-" Colorscheme Twilight
-" Colorscheme Vice
-
-" Colorscheme Zenburn
-colorscheme zenburn
-highlight lineNr guibg=#3f3f3f guifg=#666666
-highlight ColorColumn guibg=#3a3a3a ctermbg=black
-
-" Highlighting
-highlight Search guibg=NONE ctermbg=NONE guifg=orange ctermfg=yellow
-highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=orange ctermfg=yellow
-
 " Open up new lines w/out switching to insert mode
 nmap <C-m> <esc>o<esc>
+
+" Color column for line length max
+" set colorcolumn=101
+
+" Colorschemes
+"
+" Bclear
+" if has('gui_running')
+  " colorscheme bclear
+  " highlight ColorColumn guibg=#fafafa ctermbg=lightgray
+" endif
+
+" Gruvbox
+if has('gui_running')
+  let g:gruvbox_contrast_dark='soft'
+  colorscheme gruvbox
+  set background=dark
+endif
+
+" Kellys
+" colorscheme Kellys
+
+" Tomorrow-Night
+" colorscheme Tomorrow-Night
+" highlight lineNr guifg=#444444
+" highlight Search guibg=NONE ctermbg=NONE guifg=yellow ctermfg=yellow
+" highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
+
+" Twilight
+" colorscheme Twilight
+
+" Vice
+" colorscheme vice
+
+" Zenburn
+" colorscheme zenburn
+" highlight lineNr guibg=#3f3f3f guifg=#666666
+" highlight ColorColumn guibg=#3a3a3a ctermbg=black
+" highlight Search guibg=NONE ctermbg=NONE guifg=#88D1D3 ctermfg=yellow
+" highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=#88D1D3 ctermfg=yellow
+
+" Highlight default
+" highlight Search guibg=NONE ctermbg=NONE guifg=orange ctermfg=yellow
+" highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=orange ctermfg=yellow
