@@ -5,13 +5,13 @@
   autocrlf = input
   safecrlf = true
   excludesfile = /Users/taylorkearns/.gitignore
-  editor = vim
+  editor = mvim -f
 [color]
   ui = true
 [push]
   default = upstream
 [alias]
   cp = cherry-pick
-  lol = log --pretty=format:'%Cblue%h  %Creset%s %Cblue(%an, %cr)' -20
+  lol = log --pretty=format:'%Cblue%h  %Creset%s %Cblue(%an, %cr)' -5
   pul = pull
   st = status
