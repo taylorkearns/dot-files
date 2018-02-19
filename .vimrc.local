@@ -1,11 +1,13 @@
 set shell=sh
-set guifont=Monaco:h10
-set linespace=2
+set guifont=Menlo:h10
 set ignorecase
+set linespace=2
+
+" Set typescript filetypes (vim-jsx-typescript)
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
 
 " Easier escape key
 inoremap jf <esc>
-inoremap jj <esc>
 inoremap Jf <esc>
 
 " Clear trailing spaces
@@ -15,7 +17,7 @@ nnoremap <silent> <space><space> :silent! %s/\s\+$//g<CR>
 nmap <C-m> <esc>o<esc>
 
 " Color column for line length max
-set colorcolumn=101
+" set colorcolumn=101
 
 " Colorschemes
 "
@@ -24,6 +26,14 @@ set colorcolumn=101
   " colorscheme bclear
   " highlight ColorColumn guibg=#fafafa ctermbg=lightgray
 " endif
+
+" Github
+if has('gui_running')
+  colorscheme Github
+  highlight ColorColumn guibg=#eeeeee ctermbg=black
+else
+  colorscheme vice
+endif
 
 " Gruvbox
 " if has('gui_running')
@@ -38,22 +48,42 @@ set colorcolumn=101
   " nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
 " endif
 
+" Jellybeans
+" colorscheme Jellybeans
+" highlight ColorColumn guibg=#303030 ctermbg=black
+
 " Kellys
-colorscheme Kellys
-highlight ColorColumn guibg=#3a3a3a ctermbg=black
+" colorscheme Kellys
+" highlight ColorColumn guibg=#3a3a3a ctermbg=black
 
 " Tomorrow-Night
 " colorscheme Tomorrow-Night
-" highlight lineNr guifg=#444444
+" highlight lineNr guifg=#969696
 " highlight Search guibg=NONE ctermbg=NONE guifg=yellow ctermfg=yellow
 " highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
 
+" Solarized
+" if has('gui_running')
+  " set background=light
+  " colorscheme solarized
+" else
+  " colorscheme zenburn
+" endif
+
 " Twilight
-" colorscheme Twilight
+" if has('gui_running')
+  " colorscheme Twilight
+  " highlight ColorColumn guibg=#3a3a3a ctermbg=black
+  " highlight Search guibg=NONE gui=underline ctermbg=NONE guifg=pink ctermfg=yellow
+  " highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
+" else
+  " colorscheme vice
+" endif
 
 " Vice
 " colorscheme vice
-" highlight Normal guibg=#373737
+" highlight Search guibg=#ADFFD9 guifg=#373737
+" highlight incsearch guibg=white guifg=#373737
 
 " Zenburn
 " colorscheme zenburn
@@ -63,5 +93,8 @@ highlight ColorColumn guibg=#3a3a3a ctermbg=black
 " highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=#88D1D3 ctermfg=yellow
 
 " Highlight default
-highlight Search    guibg=NONE gui=underline ctermbg=NONE guifg=pink ctermfg=yellow
-highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
+" highlight Search    guibg=NONE gui=underline ctermbg=NONE guifg=pink ctermfg=yellow
+" highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
+
+" NERDTree
+let g:NERDTreeWinSize=62
