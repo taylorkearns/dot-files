@@ -1,5 +1,5 @@
 set shell=sh
-set guifont=Menlo:h10
+set guifont=Menlo:h12
 set ignorecase
 set linespace=2
 
@@ -16,6 +16,10 @@ nnoremap <silent> <space><space> :silent! %s/\s\+$//g<CR>
 " Open up new lines w/out switching to insert mode
 nmap <C-m> <esc>o<esc>
 
+" F2 will inline-sort sets of words
+" foo, bar, baz ==> bar, baz, foo
+vnoremap <F2> d:execute 'normal i' . join(sort(split(getreg('"'), '\W\+')), ', ')<CR>
+
 " Color column for line length max
 " set colorcolumn=101
 
@@ -28,12 +32,12 @@ nmap <C-m> <esc>o<esc>
 " endif
 
 " Github
-if has('gui_running')
-  colorscheme Github
-  highlight ColorColumn guibg=#eeeeee ctermbg=black
-else
-  colorscheme vice
-endif
+" if has('gui_running')
+  " colorscheme Github
+  " highlight ColorColumn guibg=#eeeeee ctermbg=black
+" else
+  " colorscheme vice
+" endif
 
 " Gruvbox
 " if has('gui_running')
@@ -46,6 +50,10 @@ endif
   " nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
   " nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
   " nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
+  " highlight Search    guibg=NONE gui=underline ctermbg=NONE guifg=pink ctermfg=yellow
+  " highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
+" else
+  " colorscheme vice
 " endif
 
 " Jellybeans
@@ -66,8 +74,10 @@ endif
 " if has('gui_running')
   " set background=light
   " colorscheme solarized
+  " highlight Search guibg=NONE gui=underline ctermbg=NONE guifg=black ctermfg=black
+  " highlight incsearch guibg=NONE gui=bold,underline ctermbg=NONE guifg=black ctermfg=black
 " else
-  " colorscheme zenburn
+  " colorscheme vice
 " endif
 
 " Twilight
@@ -81,9 +91,9 @@ endif
 " endif
 
 " Vice
-" colorscheme vice
-" highlight Search guibg=#ADFFD9 guifg=#373737
-" highlight incsearch guibg=white guifg=#373737
+colorscheme vice
+highlight Search    guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
+highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
 
 " Zenburn
 " colorscheme zenburn
