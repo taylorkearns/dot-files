@@ -1,130 +1,154 @@
-" Extra runtime paths for plugins
-set runtimepath+=$HOME/.vim/vim-haml
+" ----------
+" Vim Config
+" ----------
+"
+"
+" How this works:
+"
+" This file is minimal.  Most of the vim settings and initialization is in
+" several files in .vim/init.  This makes it easier to find things and to
+" merge between branches and repos.
+"
+" Please do not add configuration to this file, unless it *really* needs to
+" come first or last, like Vundle and sourcing the machine-local config.
+" Instead, add it to one of the files in .vim/init, or create a new one.
+"
+" After adding new Vundle plugins, run `~/.vim/bin/update`
+" After adding new Plug plugins, open vim and run :PluginInstall
 
-" Use Vim instead of Vi settings
-set nocompatible
+set nocompatible               " be iMproved
+filetype off                   " required!
 
-let mapleader = ","
-
-call pathogen#infect()
-
-" Sounds
-set vb
-
-" Colors
-syntax on
-set t_Co=256
-
-if has('gui_running')
-  " Light color scheme
-  "color pyte
-  "set background=light
-  " Dark color scheme
-  color twilight
-  set background=dark
+let need_to_install_plugins=0
+if empty(system("grep lazy_load ~/.vim/bundle/Vundle.vim/autoload/vundle.vim"))
+  echoerr "Vundle plugins are not installed. Please run ~/.vim/bin/install"
 else
-  color zenburn
+  set rtp+=~/.vim/bundle/Vundle.vim
+
+  call vundle#begin()
+
+  Plugin 'VundleVim/Vundle.vim'
+
+  "
+  " Colorschemes
+  "
+  Plugin 'Colour-Sampler-Pack'
+  Plugin 'alessandroyorba/sidonia'
+  Plugin 'lifepillar/vim-solarized8'
+  Plugin 'bcicen/vim-vice'
+  Plugin 'candycode.vim'
+  Plugin 'chriskempson/base16-vim'
+  Plugin 'chriskempson/vim-tomorrow-theme'
+  Plugin 'flazz/vim-colorschemes'
+  Plugin 'molokai'
+  Plugin 'morhetz/gruvbox'
+  Plugin 'tpope/vim-vividchalk'
+  Plugin 'wgibbs/vim-irblack'
+
+  "
+  " Other color stuff
+  "
+  Plugin 'Colorizer'
+
+  "
+  " Ruby / Rails
+  "
+  Plugin 'ecomba/vim-ruby-refactoring'
+  Plugin 'jgdavey/vim-blockle'
+  Plugin 'tpope/vim-endwise'
+  Plugin 'tpope/vim-rails'
+  Plugin 'tpope/vim-rake'
+  Plugin 'tpope/vim-rbenv'
+
+  "
+  " General Editing
+  "
+  Plugin 'MarcWeber/vim-addon-mw-utils'
+  Plugin 'YankRing.vim'
+  Plugin 'brysgo/quickfixfix'
+  Plugin 'editorconfig/editorconfig-vim'
+  Plugin 'ervandew/supertab'
+  Plugin 'godlygeek/tabular'
+  Plugin 'kien/rainbow_parentheses.vim'
+  Plugin 'matt-royal/diffthese'
+  Plugin 'nertzy/edit-plus'
+  Plugin 'nertzy/j-split'
+  Plugin 'scrooloose/nerdcommenter'
+  Plugin 'tomtom/tlib_vim'
+  Plugin 'tpope/vim-projectionist'
+  Plugin 'tpope/vim-repeat'
+  Plugin 'tpope/vim-surround'
+  Plugin 'tpope/vim-unimpaired'
+  Plugin 'vim-airline/vim-airline'
+  Plugin 'vim-airline/vim-airline-themes'
+  Plugin 'vim-scripts/L9'
+  Plugin 'w0rp/ale'
+
+  "
+  " Window Management
+  "
+  Plugin 'ZoomWin'
+
+  "
+  " Searching
+  "
+  Plugin 'epmatsw/ag.vim'
+  Plugin 'kien/ctrlp.vim'
+
+  "
+  " Navigation
+  "
+  Plugin 'scrooloose/nerdtree'
+
+  "
+  " Languages
+  "
+  Plugin 'briancollins/vim-jst'
+  Plugin 'chrisbra/csv.vim'
+  Plugin 'digitaltoad/vim-jade'
+  Plugin 'elzr/vim-json'
+  Plugin 'fatih/vim-go'
+  Plugin 'guns/vim-clojure-static'
+  Plugin 'juvenn/mustache.vim'
+  Plugin 'kchmck/vim-coffee-script'
+  Plugin 'lambdatoast/elm.vim'
+  Plugin 'leafgarland/typescript-vim'
+  Plugin 'mxw/vim-jsx'
+  Plugin 'nono/vim-handlebars'
+  Plugin 'pangloss/vim-javascript'
+  Plugin 'peitalin/vim-jsx-typescript'
+  Plugin 'quentindecock/vim-cucumber-align-pipes'
+  Plugin 'rosstimson/scala-vim-support'
+  Plugin 'slim-template/vim-slim'
+  Plugin 'tpope/vim-cucumber'
+  Plugin 'tpope/vim-haml'
+  Plugin 'vim-ruby/vim-ruby'
+
+  "
+  " Development Tool Integration
+  "
+  Plugin 'sjl/vitality.vim'
+  Plugin 'tpope/vim-fugitive'
+
+  call vundle#end()
+
+  "
+  " Plug plugins
+  "
+  call plug#begin('~/.vim/plugged')
+
+  Plug 'prettier/vim-prettier', { 'do': 'yarn install' }
+
+  call plug#end()
+
+  filetype plugin indent on
+
+  syntax on
+
+  runtime! init/**.vim
+
+  if filereadable($HOME . "/.vimrc.local")
+    source ~/.vimrc.local
+  endif
 endif
 
-" Fonts
-set guifont=Menlo:h14
-set linespace=4
-
-filetype plugin indent on
-
-" Search
-set hlsearch
-set incsearch
-set ignorecase
-set smartcase
-" Light color scheme
-"highlight Search guibg=pink guifg=white
-"highlight incsearch guibg=NONE guifg=pink
-" Dark color scheme
-highlight Search guibg=NONE guifg=pink gui=underline
-highlight incsearch guibg=NONE guifg=pink
-nnoremap <silent> <space> :nohlsearch<Bar>:echo<CR>
-
-" Search hidden files
-set hidden
-
-" Line numbers
-set number
-highlight LineNr guifg='#444444' guibg=NONE
-
-" Whitespace
-set nowrap
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
-set shiftround
-set expandtab
-set list listchars=tab:\ \ ,trail:·
-
-" Easy split navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-" Clear trailing spaces
-nnoremap <silent> <space><space> :silent! %s/\s\+$//g<CR>
-
-" Easier escape key
-inoremap jf <esc>
-inoremap Jf <esc>
-
-" Add quotes around a word
-nmap "" wi"<esc>Bi"<esc>
-nmap '' wi'<esc>Bi'<esc>
-
-" Remove backup and swap files
-set nobackup
-set nowritebackup
-set noswapfile
-
-" NERDTree
-let NERDTreeShowHidden=0
-let NERDTreeWinSize=60
-nmap 22 :NERDTreeToggle<CR>
-
-" Fat finger fixes
-command! -bang W w<bang>
-
-" Open up new lines w/out switching to insert mode
-nmap <C-m> <esc>o<esc>
-
-" Slim syntax for emblem.js"
-au BufNewFile,BufRead *.emblem set filetype=slim
-
-" Lusty
-let g:LustyExplorerSuppressRubyWarning = 1
-let g:LustyJugglerSuppressRubyWarning = 1
-
-" Format JSON
-function! Format_json()
-  silent %s/'/"/gce
-
-  silent %s/{/{\r/ge
-  silent %s/}/\r}/ge
-
-  silent %s/\[/[\r/ge
-  silent %s/\]/\r]/ge
-
-  silent %s/":/": /ge
-  silent %s/"\s\+:/": /ge
-  silent %s/:\s\+/: /ge
-
-  silent %s/""/"/ge
-
-  silent %s/,\s*"/,\r"/ge
-
-  silent %s/\s\+$//ge
-  silent g/^$/de
-
-  normal gg
-  normal V
-  normal G
-  silent normal =
-  normal <space>
-endfunction

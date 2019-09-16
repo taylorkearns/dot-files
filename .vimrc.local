@@ -1,7 +1,9 @@
 set shell=sh
-set guifont=Menlo:h12
+set guifont=Monaco:h10
 set ignorecase
-set linespace=2
+
+" Column to the left of line numbers, for dislaying error signs?
+set signcolumn=no
 
 " Set typescript filetypes (vim-jsx-typescript)
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
@@ -16,27 +18,43 @@ nnoremap <silent> <space><space> :silent! %s/\s\+$//g<CR>
 " Open up new lines w/out switching to insert mode
 nmap <C-m> <esc>o<esc>
 
-" F2 will inline-sort sets of words
-" foo, bar, baz ==> bar, baz, foo
-vnoremap <F2> d:execute 'normal i' . join(sort(split(getreg('"'), '\W\+')), ', ')<CR>
+" NERDTree
+let g:NERDTreeWinSize=62
+
+" ALE
+noremap <Leader>d :ALEDetail<CR>
+noremap <Leader>gd :ALEGoToDefinition<CR>
+noremap <Leader>gh :ALEHover<CR>
+let g:ale_sign_column_always = 1
+let g:ale_fixers = { 'javascript': ['prettier', 'eslint'], 'typescript': ['prettier', 'tslint'] }
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_sign_column_always = 1
 
 " Color column for line length max
-" set colorcolumn=101
+set colorcolumn=101
 
 " Colorschemes
 "
 " Bclear
 " if has('gui_running')
   " colorscheme bclear
-  " highlight ColorColumn guibg=#fafafa ctermbg=lightgray
+  " hi Normal     guibg=#fafafa
+  " hi NonText    guibg=#fafafa
+  " hi lineNr     guibg=#fafafa guifg=#cccccc
+  " hi SpellBad   guifg=#000000 guibg=#fafafa guisp=#000000 gui=none
+  " hi SpellCap   guifg=#000000 guibg=#fafafa guisp=#000000 gui=none
+  " hi SpellRare  guifg=#000000 guibg=#fafafa guisp=#000000 gui=none
+  " hi SpellLocal guifg=#000000 guibg=#fafafa guisp=#000000 gui=none
+  " hi Error      guifg=#000000 guibg=#fafafa
+" else
+  " colorscheme Jellybeans
 " endif
 
 " Github
 " if has('gui_running')
   " colorscheme Github
   " highlight ColorColumn guibg=#eeeeee ctermbg=black
-" else
-  " colorscheme vice
 " endif
 
 " Gruvbox
@@ -44,40 +62,75 @@ vnoremap <F2> d:execute 'normal i' . join(sort(split(getreg('"'), '\W\+')), ', '
   " let g:gruvbox_contrast_dark='soft'
   " colorscheme gruvbox
   " set background=dark
+  " set cursorline
   " nnoremap <silent> [oh :call gruvbox#hls_show()<CR>
   " nnoremap <silent> ]oh :call gruvbox#hls_hide()<CR>
   " nnoremap <silent> coh :call gruvbox#hls_toggle()<CR>
   " nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
   " nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
   " nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
-  " highlight Search    guibg=NONE gui=underline ctermbg=NONE guifg=pink ctermfg=yellow
-  " highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
+  " highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=SpringGreen2 ctermfg=green
+  " highlight Search    guibg=NONE ctermbg=NONE guifg=SpringGreen2 ctermfg=green
 " else
-  " colorscheme vice
+  " colorscheme Kellys
 " endif
+
+" Neon
+colorscheme Neon
+highlight ColorColumn guibg=#303030 ctermbg=black
+highlight Error guifg=#cccccc guibg=#373737
+highlight LineNr guibg=#373737
+highlight NonText guibg=#373737
+highlight Normal guibg=#373737
+highlight Search guibg=NONE gui=bold ctermbg=NONE guifg=yellow ctermfg=yellow
+highlight incsearch guifg=yellow guibg=NONE gui=underline ctermbg=NONE ctermfg=yellow
+highlight SpellBad guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline ctermbg=NONE ctermfg=white
+highlight SpellCap guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline ctermbg=NONE ctermfg=white
+highlight SpellLocal guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline ctermbg=NONE ctermfg=white
+highlight SpellRare guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline ctermbg=NONE ctermfg=white
 
 " Jellybeans
 " colorscheme Jellybeans
 " highlight ColorColumn guibg=#303030 ctermbg=black
+" highlight Error guifg=#cccccc guibg=#373737
+" highlight ErrorMsg guibg=#373737
+" highlight LineNr guibg=#373737
+" highlight NonText guibg=#373737
+" highlight Normal guibg=#373737
+" highlight Search    guibg=NONE gui=bold      ctermbg=NONE guifg=pink ctermfg=yellow
+" highlight SpellBad guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
+" highlight SpellCap guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
+" highlight SpellLocal guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
+" highlight SpellRare guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
+" highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=pink ctermfg=yellow
 
 " Kellys
 " colorscheme Kellys
 " highlight ColorColumn guibg=#3a3a3a ctermbg=black
+" highlight Search    guibg=NONE gui=none      ctermbg=NONE guifg=#db5bf7 ctermfg=blue
+" highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=#db5bf7 ctermfg=blue
 
 " Tomorrow-Night
-" colorscheme Tomorrow-Night
-" highlight lineNr guifg=#969696
-" highlight Search guibg=NONE ctermbg=NONE guifg=yellow ctermfg=yellow
-" highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
+  " colorscheme Tomorrow-Night
+  " highlight Normal guibg=#373737
+  " highlight NonText guibg=#373737
+  " highlight LineNr guibg=#373737 guifg=#575757
+  " highlight Search guibg=NONE gui=underline ctermbg=NONE guifg=pink   ctermfg=yellow
+  " highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
+  " highlight SpellBad guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
+  " highlight SpellCap guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
+  " highlight SpellRare guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
+  " highlight SpellLocal guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
+  " highlight Error guifg=#cccccc guibg=#373737
 
 " Solarized
 " if has('gui_running')
   " set background=light
-  " colorscheme solarized
-  " highlight Search guibg=NONE gui=underline ctermbg=NONE guifg=black ctermfg=black
-  " highlight incsearch guibg=NONE gui=bold,underline ctermbg=NONE guifg=black ctermfg=black
+  " colorscheme solarized8_flat
+  " highlight Search    guibg=NONE gui=NONE      ctermbg=NONE guifg=orange ctermfg=black
+  " highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=orange ctermfg=black
 " else
-  " colorscheme vice
+  " colorscheme Kellys
 " endif
 
 " Twilight
@@ -91,9 +144,9 @@ vnoremap <F2> d:execute 'normal i' . join(sort(split(getreg('"'), '\W\+')), ', '
 " endif
 
 " Vice
-colorscheme vice
-highlight Search    guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
-highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
+" colorscheme vice
+" highlight Search    guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
+" highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
 
 " Zenburn
 " colorscheme zenburn
@@ -103,8 +156,5 @@ highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=y
 " highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=#88D1D3 ctermfg=yellow
 
 " Highlight default
-" highlight Search    guibg=NONE gui=underline ctermbg=NONE guifg=pink ctermfg=yellow
+" highlight Search    guibg=NONE gui=none ctermbg=NONE guifg=pink ctermfg=yellow
 " highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
-
-" NERDTree
-let g:NERDTreeWinSize=62

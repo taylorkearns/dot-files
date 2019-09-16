@@ -1,17 +1,22 @@
 [user]
-  name = Taylor Kearns
-  email = tkearns@gmail.com
+	name = Taylor Kearns
+	email = tkearns@gmail.com
 [core]
-  autocrlf = input
+	autocrlf = false
   safecrlf = true
   excludesfile = /Users/taylorkearns/.gitignore
-  editor = mvim -f
+	editor = mvim -f
 [color]
   ui = true
 [push]
   default = upstream
 [alias]
   cp = cherry-pick
-  lol = log --pretty=format:'%Cblue%h  %Creset%s %Cblue(%an, %cr)' -5
+  lol = log --pretty=format:'%Cblue%h  %Creset%s %Cblue(%an, %cr)' -10
   pul = pull
   st = status
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
