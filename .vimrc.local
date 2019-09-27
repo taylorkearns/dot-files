@@ -76,18 +76,18 @@ set colorcolumn=101
 " endif
 
 " Neon
-colorscheme Neon
-highlight ColorColumn guibg=#303030 ctermbg=black
-highlight Error guifg=#cccccc guibg=#373737
-highlight LineNr guibg=#373737
-highlight NonText guibg=#373737
-highlight Normal guibg=#373737
-highlight Search guibg=NONE gui=bold ctermbg=NONE guifg=yellow ctermfg=yellow
-highlight incsearch guifg=yellow guibg=NONE gui=underline ctermbg=NONE ctermfg=yellow
-highlight SpellBad guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline ctermbg=NONE ctermfg=white
-highlight SpellCap guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline ctermbg=NONE ctermfg=white
-highlight SpellLocal guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline ctermbg=NONE ctermfg=white
-highlight SpellRare guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline ctermbg=NONE ctermfg=white
+" colorscheme Neon
+" highlight ColorColumn guibg=#303030 ctermbg=black
+" highlight Error guifg=#cccccc guibg=#373737
+" highlight LineNr guibg=#373737
+" highlight NonText guibg=#373737
+" highlight Normal guibg=#373737
+" highlight Search guibg=NONE gui=bold ctermbg=NONE guifg=yellow ctermfg=yellow
+" highlight incsearch guifg=yellow guibg=NONE gui=underline ctermbg=NONE ctermfg=yellow
+" highlight SpellBad guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline ctermbg=NONE ctermfg=white
+" highlight SpellCap guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline ctermbg=NONE ctermfg=white
+" highlight SpellLocal guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline ctermbg=NONE ctermfg=white
+" highlight SpellRare guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline ctermbg=NONE ctermfg=white
 
 " Jellybeans
 " colorscheme Jellybeans
@@ -97,7 +97,7 @@ highlight SpellRare guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline cter
 " highlight LineNr guibg=#373737
 " highlight NonText guibg=#373737
 " highlight Normal guibg=#373737
-" highlight Search    guibg=NONE gui=bold      ctermbg=NONE guifg=pink ctermfg=yellow
+" highlight Search guibg=NONE gui=bold      ctermbg=NONE guifg=pink ctermfg=yellow
 " highlight SpellBad guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
 " highlight SpellCap guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
 " highlight SpellLocal guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
@@ -111,17 +111,15 @@ highlight SpellRare guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline cter
 " highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=#db5bf7 ctermfg=blue
 
 " Tomorrow-Night
-  " colorscheme Tomorrow-Night
-  " highlight Normal guibg=#373737
-  " highlight NonText guibg=#373737
-  " highlight LineNr guibg=#373737 guifg=#575757
-  " highlight Search guibg=NONE gui=underline ctermbg=NONE guifg=pink   ctermfg=yellow
-  " highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
-  " highlight SpellBad guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
-  " highlight SpellCap guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
-  " highlight SpellRare guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
-  " highlight SpellLocal guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
-  " highlight Error guifg=#cccccc guibg=#373737
+  colorscheme Tomorrow-Night
+  highlight LineNr guifg=#666666
+  highlight Search guibg=NONE gui=underline ctermbg=NONE guifg=pink   ctermfg=yellow
+  highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
+  highlight SpellBad guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
+  highlight SpellCap guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
+  highlight SpellRare guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
+  highlight SpellLocal guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
+  highlight Error guifg=#cccccc guibg=#373737
 
 " Solarized
 " if has('gui_running')
