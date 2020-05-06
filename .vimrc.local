@@ -1,6 +1,7 @@
 set shell=sh
-set guifont=Monaco:h10
+set guifont=Menlo:h12
 set ignorecase
+set linespace=2
 
 " Column to the left of line numbers, for dislaying error signs?
 set signcolumn=no
@@ -18,6 +19,12 @@ nnoremap <silent> <space><space> :silent! %s/\s\+$//g<CR>
 " Open up new lines w/out switching to insert mode
 nmap <C-m> <esc>o<esc>
 
+" Don't auto fold
+set nofoldenable
+
+" Default CSV delimiter
+let g:csv_delim=','
+
 " NERDTree
 let g:NERDTreeWinSize=62
 
@@ -31,11 +38,30 @@ let g:ale_fix_on_save = 1
 let g:ale_lint_on_text_changed = 'always'
 let g:ale_sign_column_always = 1
 
+" Search for term under cursor
+noremap <Leader>, :Ag<CR>
+
+" Golang
+noremap <Leader>gr :GoRun<CR>
+
 " Color column for line length max
-set colorcolumn=101
+" set colorcolumn=101
 
 " Colorschemes
-"
+" Happy Hacking
+" colorscheme happy_hacking
+" highlight Search guibg=NONE gui=bold ctermbg=NONE guifg=yellow ctermfg=yellow
+" highlight incsearch    guibg=NONE ctermbg=NONE guifg=yellow ctermfg=yellow
+
+" one
+colorscheme one
+hi SpellBad   gui=bold
+hi SpellCap   gui=bold
+hi SpellRare  gui=bold
+hi SpellLocal gui=bold
+hi Error      gui=bold
+
+
 " Bclear
 " if has('gui_running')
   " colorscheme bclear
@@ -69,8 +95,8 @@ set colorcolumn=101
   " nnoremap * :let @/ = ""<CR>:call gruvbox#hls_show()<CR>*
   " nnoremap / :let @/ = ""<CR>:call gruvbox#hls_show()<CR>/
   " nnoremap ? :let @/ = ""<CR>:call gruvbox#hls_show()<CR>?
-  " highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=SpringGreen2 ctermfg=green
-  " highlight Search    guibg=NONE ctermbg=NONE guifg=SpringGreen2 ctermfg=green
+  " highlight Search guibg=NONE gui=underline ctermbg=NONE guifg=SpringGreen2 ctermfg=green
+  " highlight incsearch    guibg=NONE ctermbg=NONE guifg=SpringGreen2 ctermfg=green
 " else
   " colorscheme Kellys
 " endif
@@ -82,8 +108,8 @@ set colorcolumn=101
 " highlight LineNr guibg=#373737
 " highlight NonText guibg=#373737
 " highlight Normal guibg=#373737
-" highlight Search guibg=NONE gui=bold ctermbg=NONE guifg=yellow ctermfg=yellow
-" highlight incsearch guifg=yellow guibg=NONE gui=underline ctermbg=NONE ctermfg=yellow
+" highlight Search guibg=NONE gui=bold ctermbg=NONE guifg=#fcd700 ctermfg=yellow
+" highlight incsearch guifg=#fcd700 guibg=NONE gui=underline ctermbg=NONE ctermfg=yellow
 " highlight SpellBad guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline ctermbg=NONE ctermfg=white
 " highlight SpellCap guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline ctermbg=NONE ctermfg=white
 " highlight SpellLocal guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline ctermbg=NONE ctermfg=white
@@ -94,15 +120,15 @@ set colorcolumn=101
 " highlight ColorColumn guibg=#303030 ctermbg=black
 " highlight Error guifg=#cccccc guibg=#373737
 " highlight ErrorMsg guibg=#373737
+" highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
 " highlight LineNr guibg=#373737
 " highlight NonText guibg=#373737
 " highlight Normal guibg=#373737
-" highlight Search guibg=NONE gui=bold      ctermbg=NONE guifg=pink ctermfg=yellow
+" highlight Search guibg=NONE gui=bold ctermbg=NONE guifg=yellow ctermfg=yellow
 " highlight SpellBad guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
 " highlight SpellCap guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
 " highlight SpellLocal guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
 " highlight SpellRare guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
-" highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=pink ctermfg=yellow
 
 " Kellys
 " colorscheme Kellys
@@ -111,20 +137,20 @@ set colorcolumn=101
 " highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=#db5bf7 ctermfg=blue
 
 " Tomorrow-Night
-  colorscheme Tomorrow-Night
-  highlight LineNr guifg=#666666
-  highlight Search guibg=NONE gui=underline ctermbg=NONE guifg=pink   ctermfg=yellow
-  highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
-  highlight SpellBad guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
-  highlight SpellCap guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
-  highlight SpellRare guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
-  highlight SpellLocal guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline
-  highlight Error guifg=#cccccc guibg=#373737
+  " colorscheme Tomorrow-Night
+  " highlight LineNr guifg=#666666
+  " highlight Search guibg=NONE gui=underline ctermbg=NONE guifg=white ctermfg=white
+  " highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
+  " highlight SpellBad guifg=#cccccc guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline ctermbg=NONE
+  " highlight SpellCap guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline ctermbg=NONE
+  " highlight SpellRare guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline ctermbg=NONE
+  " highlight SpellLocal guifg=#cccccc guibg=#373737 guisp=#cccccc gui=underline ctermbg=NONE
+  " highlight Error guifg=#cccccc guibg=#373737
 
 " Solarized
 " if has('gui_running')
   " set background=light
-  " colorscheme solarized8_flat
+  " colorscheme solarized
   " highlight Search    guibg=NONE gui=NONE      ctermbg=NONE guifg=orange ctermfg=black
   " highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=orange ctermfg=black
 " else
@@ -137,22 +163,17 @@ set colorcolumn=101
   " highlight ColorColumn guibg=#3a3a3a ctermbg=black
   " highlight Search guibg=NONE gui=underline ctermbg=NONE guifg=pink ctermfg=yellow
   " highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
+  " highlight NonText guibg=#1a1a1a
+  " highlight LineNr guibg=#1a1a1a guifg=#57595d
+  " highlight SpellBad guifg=#cccccc guibg=#1a1a1a guisp=#cccccc gui=underline
+  " highlight SpellCap guifg=#cccccc guibg=#1a1a1a guisp=#cccccc gui=underline
+  " highlight SpellLocal guifg=#cccccc guibg=#1a1a1a guisp=#cccccc gui=underline
+  " highlight SpellRare guifg=#cccccc guibg=#1a1a1a guisp=#cccccc gui=underline
 " else
-  " colorscheme vice
+  " colorscheme Kellys
 " endif
 
 " Vice
 " colorscheme vice
 " highlight Search    guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
-" highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
-
-" Zenburn
-" colorscheme zenburn
-" highlight lineNr guibg=#3f3f3f guifg=#666666
-" highlight ColorColumn guibg=#3a3a3a ctermbg=black
-" highlight Search guibg=NONE ctermbg=NONE guifg=#88D1D3 ctermfg=yellow
-" highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=#88D1D3 ctermfg=yellow
-
-" Highlight default
-" highlight Search    guibg=NONE gui=none ctermbg=NONE guifg=pink ctermfg=yellow
 " highlight incsearch guibg=NONE gui=underline ctermbg=NONE guifg=yellow ctermfg=yellow
