@@ -1,0 +1,8 @@
+.DS_Store
+.env
+.pryrc
+.rspec
+dump.rdb
+logfile
+npm-debug.log
+node_modules

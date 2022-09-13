@@ -1,0 +1,27 @@
+[user]
+  name = Taylor Kearns
+  email = taylor@thegnar.co
+[core]
+  autocrlf = false
+  safecrlf = true
+  excludesfile = /Users/taylorkearns/.gitignore
+  editor = vim
+  attributesfile = /Users/taylorkearns/.gitattributes
+[color]
+  ui = true
+[push]
+  default = upstream
+[alias]
+  chp = cherry-pick
+  lol = log --pretty='format:%h %cs%Cblue%d%Creset %s' -40
+  pul = pull
+  st = status
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[pull]
+  rebase = true
+[init]
+  defaultBranch = main

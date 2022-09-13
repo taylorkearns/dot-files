@@ -1,0 +1,85 @@
+set shell=sh
+set guifont=Droid\ Sans\ Mono:h13
+set ignorecase
+set linespace=2
+set termguicolors
+
+" Make search case-sensitive
+set noignorecase
+
+" Column to the left of line numbers, for dislaying error signs
+set signcolumn=no
+
+" Set typescript filetypes (vim-jsx-typescript)
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
+
+" Don't auto fold
+set nofoldenable
+
+" Default CSV delimiter
+let g:csv_delim=','
+
+" NERDTree
+let g:NERDTreeWinSize=62
+
+" ALE
+noremap <Leader>d :ALEDetail<CR>
+noremap <Leader>gd :ALEGoToDefinition<CR>
+noremap <Leader>gh :ALEHover<CR>
+let g:ale_sign_column_always = 1
+let g:ale_fixers = { 'javascript': ['prettier', 'eslint'], 'typescript': ['prettier', 'tslint'] }
+let g:ale_fix_on_save = 1
+let g:ale_lint_on_text_changed = 'always'
+let g:ale_sign_column_always = 1
+
+" Search for term under cursor
+noremap <Leader>, :Ag<CR>
+
+" Golang
+noremap <Leader>gr :GoRun<CR>
+
+" Color column for line length max
+set colorcolumn=0
+highlight ColorColumn guibg=#303C4E ctermbg=black
+
+" Macros
+" To copy keystrokes from a macro: create the macro (with q for example). Then
+" paste the macro commands with "qp
+"
+" Turn a var into a let (ruby)
+map <Leader>ll ^ilet(:jff r)f=xi {jf$A }<esc>
+" Turn a let into a var (ruby)
+map <Leader>ul ^df:f)df{i =jff}xx
+" Easier escape key
+inoremap jf <esc>
+inoremap Jf <esc>
+" Clear trailing spaces
+nnoremap <silent> <space><space> :silent! %s/\s\+$//g<CR>
+" Open up new lines w/out switching to insert mode
+nmap <C-m> <esc>o<esc>
+" Turn a { } block into a do..end
+map <Leader> 2l V,s{\s/do\r/V,s\s}/\rend/Vkk=-jjj
+" Turn a do..end block into a { }
+map <Leader> 1l ^f lcw{jfJJwcw}jf
+
+" Themes
+"
+if has('gui_running')
+  " Gruvbox
+  " let g:gruvbox_contrast_dark='soft' " options for contrast are 'soft' / 'medium' / 'hard'
+  " let g:gruvbox_contrast_light='hard'
+  " colorscheme gruvbox
+  " set bg=dark
+  " set cursorline
+
+  " Quietlight
+  " colorscheme quietlight
+  " set background=light
+
+  " Alduin
+  colorscheme alduin
+else
+  colorscheme evening
+  set colorcolumn=0
+  highlight LineNr guifg=#777777
+endif
