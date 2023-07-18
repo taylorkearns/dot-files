@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/Users/taylorkearns/.oh-my-zsh"
@@ -80,11 +80,12 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='code'
+fi
+
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
 
@@ -95,11 +96,6 @@ export NVM_DIR="$HOME/.nvm"
 
 # Smarty (AARP)
 SMARTY_API_KEY=117264033437379829
-
-# PostgreSQL
-# 2020-11-30 This was added because HomeBrew does not yet have a bottle for postgres on Big Sur.
-# Can be removed once that happens, I think.
-# export PATH=$PATH:/usr/local/opt/postgres/bin
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -116,11 +112,14 @@ alias be="bundle exec"
 alias rs="bundle exec rspec"
 alias c="clear"
 alias ipsum="curl -s 'https://hipsum.co/api/?type=hipster-centric&sentences=5'"
-alias branch="git branch | cat"
-alias foo="git branch | grep -Ev "main$|dev$" | xargs git branch -D"
+alias branch="git branch --list --sort=committerdate | cat"
+alias cleanbranches='git branch | grep -Ev "main$|dev$" | xargs git branch -D'
 
 eval "$(rbenv init - zsh)"
 export PATH="$HOME/.rbenv/bin:$PATH"
+
+# Allows calling a project-specific binstub w/out "bin/"
+export PATH="./bin:$PATH"
 
 # MySQL
 export PATH=$PATH:/opt/homebrew/opt/mysql@5.7/bin
