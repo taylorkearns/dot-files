@@ -1,18 +1,20 @@
 [user]
   name = Taylor Kearns
-  email = tkearns@gmail.com
+  email = taylor@thegnar.co
 [core]
   autocrlf = false
   safecrlf = true
   excludesfile = /Users/taylorkearns/.gitignore
-  editor = nvim -f
+  editor = vim
+  attributesfile = /Users/taylorkearns/.gitattributes
 [color]
   ui = true
 [push]
   default = upstream
 [alias]
   chp = cherry-pick
-  lol = log --pretty='format:%h %cs%Cblue%d%Creset %s' -40
+  lol = log --pretty='format:%cs %Cgreen%h %Creset%s %Cblue%an %Cgreen%d' -40
+  loll = log --pretty='format:%h %cs%Cblue%d%Creset %s' -1000
   pul = pull
   st = status
 [filter "lfs"]
@@ -22,3 +24,5 @@
   required = true
 [pull]
   rebase = true
+[init]
+  defaultBranch = main
