@@ -112,7 +112,7 @@ alias be="bundle exec"
 alias rs="bundle exec rspec"
 alias c="clear"
 alias ipsum="curl -s 'https://hipsum.co/api/?type=hipster-centric&sentences=5'"
-alias branch="git branch --list --sort=committerdate | cat"
+alias branch="git branch --list --sort=-committerdate | cat"
 alias cleanbranches='git branch | grep -Ev "main$|dev$" | xargs git branch -D'
 
 eval "$(rbenv init - zsh)"
