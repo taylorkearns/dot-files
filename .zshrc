@@ -104,16 +104,12 @@ SMARTY_API_KEY=117264033437379829
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 alias be="bundle exec"
-alias rs="bundle exec rspec"
+alias rs="clear && bundle exec rspec"
 alias c="clear"
 alias ipsum="curl -s 'https://hipsum.co/api/?type=hipster-centric&sentences=5'"
 alias branch="git branch --list --sort=-committerdate | cat"
-alias cleanbranches='git branch | grep -Ev "main$|dev$" | xargs git branch -D'
+alias cleanbranches='git branch | grep -v "^* main$" | xargs git branch -D'
 
 eval "$(rbenv init - zsh)"
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -123,3 +119,7 @@ export PATH="./bin:$PATH"
 
 # MySQL
 export PATH=$PATH:/opt/homebrew/opt/mysql@5.7/bin
+
+if [[ $(pwd) == "/Users/taylorkearns/workspace/visible/visible-app"* ]]; then
+  nvm use 20;
+fi
